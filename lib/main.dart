@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(const MyApp());
 
@@ -9,16 +10,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Lugares del mundo',
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-      ),
+      theme: ThemeData(primarySwatch: Colors.teal),
       home: const TouristApp(),
     );
   }
 }
 
-/// StatefulWidget: mantiene estado mutable que puede cambiar con el tiempo.
-/// StatelessWidget: no cambia después de ser construido.
 class TouristApp extends StatefulWidget {
   const TouristApp({super.key});
 
@@ -32,81 +29,101 @@ class _TouristAppState extends State<TouristApp> {
       name: 'Machu Picchu',
       country: 'Perú',
       description:
-          'Ruinas incas ubicadas en la cima de una montaña, famosas por su historia y vistas impresionantes.',
+        'Ruinas incas ubicadas en la cima de una montaña, famosas por su historia y vistas impresionantes.',
       imageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/e/eb/Machu_Picchu%2C_Peru.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/e/eb/Machu_Picchu%2C_Peru.jpg',
+      mapUrl:
+        'https://www.google.com/maps/search/?api=1&query=Machu+Picchu+Peru',
     ),
     TouristSite(
       name: 'Torre Eiffel',
       country: 'Francia',
       description:
-          'El ícono de París, una torre de hierro conocida por su arquitectura y vistas panorámicas.',
+        'El ícono de París, una torre de hierro conocida por su arquitectura y vistas panorámicas.',
       imageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg',
+      mapUrl:
+        'https://www.google.com/maps/search/?api=1&query=Eiffel+Tower+Paris',
     ),
     TouristSite(
       name: 'Gran Muralla',
       country: 'China',
       description:
-          'Una extensa fortificación histórica que se extiende miles de kilómetros a través de montañas y valles.',
+        'Una extensa fortificación histórica que se extiende miles de kilómetros a través de montañas y valles.',
       imageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/2/23/The_Great_Wall_of_China_at_Jinshanling-edit.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/1/10/Great_Wall_2010.JPG',
+      mapUrl:
+        'https://www.google.com/maps/search/?api=1&query=Great+Wall+China',
     ),
     TouristSite(
       name: 'Taj Mahal',
       country: 'India',
       description:
-          'Mausoleo de mármol blanco construido como símbolo de amor eterno y una de las maravillas del mundo.',
+        'Mausoleo de mármol blanco construido como símbolo de amor eterno y una de las maravillas del mundo.',
       imageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/d/da/Taj-Mahal.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/d/da/Taj-Mahal.jpg',
+      mapUrl:
+        'https://www.google.com/maps/search/?api=1&query=Taj+Mahal+India',
     ),
     TouristSite(
       name: 'Gran Cañón',
       country: 'Estados Unidos',
       description:
-          'Un cañón gigantesco esculpido por el río Colorado, famoso por sus colores y profundidades.',
+        'Un cañón gigantesco esculpido por el río Colorado, famoso por sus colores y profundidades.',
       imageUrl:
-          'https://www.civitatis.com/f/estados-unidos/las-vegas/guia/gran-canon.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/a/a0/Grand_Canyon_view_from_Pima_Point_2010.jpg',
+      mapUrl:
+        'https://www.google.com/maps/search/?api=1&query=Grand+Canyon+Arizona',
     ),
     TouristSite(
       name: 'Petra',
       country: 'Jordania',
       description:
-          'Ciudad antigua excavada en roca rosa, conocida como la ciudad perdida y patrimonio de la humanidad.',
+        'Ciudad antigua excavada en roca rosa, conocida como la ciudad perdida y patrimonio de la humanidad.',
       imageUrl:
-          'https://content-viajes.nationalgeographic.com.es/medio/2025/11/28/adobestock_64170f5b_114180817_251128134112_1280x853.webp',
+        'https://upload.wikimedia.org/wikipedia/commons/6/60/Al_Khazneh.jpg',
+      mapUrl:
+        'https://www.google.com/maps/search/?api=1&query=Petra+Jordan',
     ),
     TouristSite(
       name: 'Ópera de Sídney',
       country: 'Australia',
       description:
-          'Edificio emblemático junto a la bahía, reconocido por su techo en forma de vela y su arquitectura única.',
+        'Edificio emblemático junto a la bahía, reconocido por su techo en forma de vela y su arquitectura única.',
       imageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/4/40/Sydney_Opera_House_Sails.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/4/40/Sydney_Opera_House_Sails.jpg',
+      mapUrl:
+        'https://www.google.com/maps/search/?api=1&query=Sydney+Opera+House+Australia',
     ),
     TouristSite(
       name: 'Cristo Redentor',
       country: 'Brasil',
       description:
-          'Una estatua monumental sobre Río de Janeiro, símbolo de bienvenida y fe con vistas espectaculares.',
+        'Una estatua monumental sobre Río de Janeiro, símbolo de bienvenida y fe con vistas espectaculares.',
       imageUrl:
-          'https://media.cnn.com/api/v1/images/stellar/prod/2024-05-17t175319z-2113098371-rc.jpg?c=16x9&q=w_800,c_fill',
+        'https://upload.wikimedia.org/wikipedia/commons/4/49/Cristo_Redentor_-_Rio_de_Janeiro.jpg',
+      mapUrl:
+        'https://www.google.com/maps/search/?api=1&query=Cristo+Redentor+Rio+de+Janeiro',
     ),
     TouristSite(
       name: 'Coliseo',
       country: 'Italia',
       description:
-          'Anfiteatro romano clásico donde se realizaban luchas de gladiadores y espectáculos públicos.',
+        'Anfiteatro romano clásico donde se realizaban luchas de gladiadores y espectáculos públicos.',
       imageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/d/de/Colosseo_2020.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/d/de/Colosseo_2020.jpg',
+      mapUrl:
+        'https://www.google.com/maps/search/?api=1&query=Colosseum+Rome',
     ),
     TouristSite(
       name: 'Chichén Itzá',
       country: 'México',
       description:
-          'Ruinas mayas con templos y pirámides, un sitio arqueológico emblemático de la cultura mesoamericana.',
+        'Ruinas mayas con templos y pirámides, un sitio arqueológico emblemático de la cultura mesoamericana.',
       imageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/a/aa/Kukulk%C3%A1n_rodeada_de_azul..JPG',
+        'https://upload.wikimedia.org/wikipedia/commons/7/7d/Chichen_Itza_3.jpg',
+      mapUrl:
+        'https://www.google.com/maps/search/?api=1&query=Chichen+Itza+Mexico',
     ),
   ];
 
@@ -135,9 +152,7 @@ class _TouristAppState extends State<TouristApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Lugares del mundo'),
-      ),
+      appBar: AppBar(title: const Text('Lugares del mundo')),
       body: ListView.builder(
         padding: const EdgeInsets.all(16),
         itemCount: _sites.length,
@@ -161,12 +176,14 @@ class TouristSite {
     required this.country,
     required this.description,
     required this.imageUrl,
+    required this.mapUrl,
   });
 
   final String name;
   final String country;
   final String description;
   final String imageUrl;
+  final String mapUrl;
 }
 
 class TouristSiteCard extends StatelessWidget {
@@ -198,6 +215,16 @@ class TouristSiteCard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 32),
             child: Row(
               children: [
+                IconButton(
+                  icon: Icon(Icons.map, color: Colors.blue[700]),
+                  onPressed: () async {
+                    final messenger = ScaffoldMessenger.of(context);
+                    final uri = Uri.parse(site.mapUrl);
+                    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+                      messenger.showSnackBar(const SnackBar(content: Text('No se pudo abrir el mapa')));
+                    }
+                  },
+                ),
                 IconButton(
                   icon: Icon(
                     isFavorite ? Icons.favorite : Icons.favorite_border,
@@ -377,5 +404,3 @@ class TextSection extends StatelessWidget {
     );
   }
 }
-
-  
