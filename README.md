@@ -109,3 +109,16 @@ Sube la imagen a cualquier hosting (Imgur, Cloudinary, GitHub, etc.) y usa la UR
    Image.asset(imageUrl, width: double.infinity, height: 200, fit: BoxFit.cover)
    ```
 5. Pasa la ruta como `imageUrl`: `'assets/images/maravilla.jpg'`.
+
+Evidencias de APK
+
+
+<img width="503" height="803" alt="image" src="https://github.com/user-attachments/assets/12fa4471-fd6d-4165-83a8-c6ab4b86bdb7" />
+<img width="1917" height="567" alt="image" src="https://github.com/user-attachments/assets/3502b483-424e-44f6-a512-7af02acdee69" />
+
+Funcionamiento de uso de google Maps
+
+<img width="1917" height="911" alt="image" src="https://github.com/user-attachments/assets/bb632d23-ba92-4a0b-8c82-9c92dac89ad0" />
+<img width="1917" height="966" alt="image" src="https://github.com/user-attachments/assets/a78be536-7073-497d-b8af-a2f2fdb1ae85" />
+
+
